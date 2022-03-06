@@ -47,16 +47,6 @@ void way_merge(vector<int>& nums,int l,int r){
 }
 
 
-
-
-
-
-
-
-
-
-
-
 int main(){
     int a[]={47,29,71,99,78,19,24,47};
     vector<int> ss;
