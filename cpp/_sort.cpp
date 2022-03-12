@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include <vector>
 #include <ctime>
 using namespace std;
@@ -48,14 +50,17 @@ void way_merge(vector<int>& nums,int l,int r){
 
 
 int main(){
-    int a[]={47,29,71,99,78,19,24,47};
     vector<int> ss;
-    for (int i=0; i<8; ++i ) {
-        ss.push_back(a[i]);
+    for (int i=0; i<44; ++i ) {
+        ss.push_back(rand());
     }
-    //quick_sort(ss, 0, ss.size()-1);
-    way_merge(ss, 0,ss.size()-1 );
-    for (int i=0; i<8; ++i ) {
+    clock_t startt=clock();
+    quick_sort(ss, 0, ss.size()-1);
+    //way_merge(ss, 0,ss.size()-1 );
+    clock_t endd=clock();
+    double tt= (double)(endd-startt);
+    cout <<"time:"<<tt<<endl;
+    for (int i=0; i<40; ++i ) {
         cout<<ss[i]<<'\t';
     }
     return 0;

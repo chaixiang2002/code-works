@@ -1,0 +1,27 @@
+### [C++ const 关键字小结 | 菜鸟教程 (runoob.com)](https://www.runoob.com/w3cnote/cpp-const-keyword.html#:~:text=const%20%E6%98%AF%20constant%20%E7%9A%84%E7%BC%A9%E5%86%99%EF%BC%8C%E6%9C%AC%E6%84%8F%E6%98%AF%E4%B8%8D%E5%8F%98%E7%9A%84%EF%BC%8C%E4%B8%8D%E6%98%93%E6%94%B9%E5%8F%98%E7%9A%84%E6%84%8F%E6%80%9D%E3%80%82.%20%E5%9C%A8,C%2B%2B%20%E4%B8%AD%E6%98%AF%E7%94%A8%E6%9D%A5%E4%BF%AE%E9%A5%B0%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E5%8F%98%E9%87%8F%EF%BC%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%EF%BC%8C%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%8C%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E3%80%82.%20C%2B%2B%20const%20%E5%85%81%E8%AE%B8%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E8%AF%AD%E4%B9%89%E7%BA%A6%E6%9D%9F%EF%BC%8C%E7%BC%96%E8%AF%91%E5%99%A8%E4%BC%9A%E5%BC%BA%E5%88%B6%E5%AE%9E%E6%96%BD%E8%BF%99%E4%B8%AA%E7%BA%A6%E6%9D%9F%EF%BC%8C%E5%85%81%E8%AE%B8%E7%A8%8B%E5%BA%8F%E5%91%98%E5%91%8A%E8%AF%89%E7%BC%96%E8%AF%91%E5%99%A8%E6%9F%90%E5%80%BC%E6%98%AF%E4%BF%9D%E6%8C%81%E4%B8%8D%E5%8F%98%E7%9A%84%E3%80%82.%20%E5%A6%82%E6%9E%9C%E5%9C%A8%E7%BC%96%E7%A8%8B%E4%B8%AD%E7%A1%AE%E5%AE%9E%E6%9C%89%E6%9F%90%E4%B8%AA%E5%80%BC%E4%BF%9D%E6%8C%81%E4%B8%8D%E5%8F%98%EF%BC%8C%E5%B0%B1%E5%BA%94%E8%AF%A5%E6%98%8E%E7%A1%AE%E4%BD%BF%E7%94%A8const%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%B8%AE%E5%8A%A9%E3%80%82.)
+
+### 二、const 修饰指针变量。
+
+const 修饰指针变量有以下三种情况。
+
+* A: const 修饰指针指向的内容，则内容为不可变量。
+* B: const 修饰指针，则指针为不可变量。
+* C: const 修饰指针和指针指向的内容，则指针和指针指向的内容都为不可变量。
+
+对于 A:
+
+```
+const int *p = 8;
+```
+
+则指针指向的内容 8 不可改变。简称左定值，因为 const 位于 * 号的左边。
+
+对于 B:
+
+```
+int a = 8;
+int* const p = &a;
+*p = 9; // 正确
+int  b = 7;
+p = &b; // 错误
+```
