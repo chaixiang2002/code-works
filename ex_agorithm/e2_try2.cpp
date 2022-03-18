@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdio.h>
 #include <vector>
 #include "e2.hpp"
 using namespace std;
@@ -12,30 +13,37 @@ void divide(int l,vector<chip>& chips,int r,vector<chip>& res){
     }
     if(r==l) {
         res.emplace_back(chips[l]);
+        return;
     }
     int mid=(l+r)/2;
     divide(l, chips, mid,res);
-    divide(mid, chips, r,res);
+    divide(mid+1, chips, r,res);
 }
 
-void conquer(vector<chip>& chips,vector<chip>& before){
-    cout<<"sd"<<endl;
-
-    if(chips.size()==1){
-    cout<<"33"<<endl;
+void conquer(vector<chip>& chips,vector<chip>& before,vector<chip>& res){
+    if(chips.size()==1){//false
+    cout<<"dasdasdasdasdasd:";
+        print_all(chips);
         return;
     }
     divide(0, chips, chips.size(), before);
     vector<chip> now;
-    conquer(before, now);
-    cout<<"11"<<endl;
+    conquer(before, now,res);
+    cout<<"ch:";
+    print_all(chips);
+    cout<<"before:";
+    print_all(before);
 }
-
 
 int main(){
     vector<chip> chips;
     insert_test(chips);
-    vector<chip> res;//vv
-    conquer(chips, res);
+    vector<chip> tmp;//vv
+    vector<chip> res;
+
+    conquer(chips, tmp,res);
+
+    cout<<"res:\n"<<endl;
+    print_all(res);
     return 0;
 }

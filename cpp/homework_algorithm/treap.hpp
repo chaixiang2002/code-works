@@ -47,7 +47,9 @@ void insert(Node* &T,int x){
         int d=T->cmp(x);
         insert(T->son[d], x);
         T->update();
-        if()
+        if(T<T->son[d])
+            rotate(T, d^1);
     }
-
 }
+
+int kth(N)
