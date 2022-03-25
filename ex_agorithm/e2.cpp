@@ -3,39 +3,35 @@
 #include "e2.hpp"
 using namespace std;
 
-void divide(int l,vector<chip>& chips,int r,vector<chip>& res){
-    if(l==r-1){
-        if( chips[l].test_to(chips[r]) && chips[r].test_to(chips[l]) ){
-            res.emplace_back(chips[l]);
-        }
-        return;
-    }
-    if(r==l) {
-        res.emplace_back(chips[l]);
-    }
-    int mid=(l+r)/2;
-    divide(l, chips, mid,res);
-    divide(mid, chips, r,res);
-}
-
-void conquer(vector<chip>& chips,vector<chip>& before){
-    cout<<"sd"<<endl;
-
+void conquer(vector<chip>& chips){
     if(chips.size()==1){
-    cout<<"33"<<endl;
         return;
     }
-    divide(0, chips, chips.size(), before);
-    vector<chip> now;
-    conquer(before, now);
-    cout<<"11"<<endl;
+    vector<chip>::iterator fast;
+    vector<chip>::iterator slow;
+    fast=chips.begin();
+    ++fast;
+    slow=chips.begin();
+    while (slow!=chips.end() && fast!=chips.end()) {
+        vector<chip>::iterator tmp;
+        if(fast->test_to(*slow) && slow->test_to(*fast)){
+            auto iter=chips.erase(slow);
+            ++slow;
+            ++fast;
+        }
+        else {
+            fast=chips.erase(fast);
+            slow=chips.erase(slow);
+        }
+    }
 }
 
 
 int main(){
     vector<chip> chips;
     insert_test(chips);
-    vector<chip> res;//vv
-    conquer(chips, res);
+    //vector<chip> res;//vv
+    conquer(chips);
+    print_all(chips);
     return 0;
 }
