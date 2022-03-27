@@ -20,6 +20,7 @@ int main()
     //iter迭代器指向元素 3
     cout << endl << *iter << endl;
     cout << endl << "fast:"<<*fast << endl;
+    cout<<*demo.begin()<<'\t'<<*demo.end()<<'\t'<<*(demo.end()-2);
 
     return 0;
 }

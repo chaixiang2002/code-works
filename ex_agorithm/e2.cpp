@@ -18,12 +18,12 @@ void conquer(vector<chip>& chips){
             auto iter=chips.erase(slow);
             ++slow;
             ++fast;
-        }
-        else {
+        } else {
             fast=chips.erase(fast);
             slow=chips.erase(slow);
         }
     }
+    conquer(chips);
 }
 
 

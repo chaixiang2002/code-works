@@ -24,7 +24,7 @@ public:
 };
 
 void insert_test(std::vector<chip>& chips){
-    int a[]={1,0,1,0,1,0,1,1};
+    int a[]={1,0,1,0,1,0,1,1,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,1,1,1,0,0,0,1,1,1,1,1,1,0,1,};
     int i=0;
     for(int& aa:a){
         chip c1(aa,i);
