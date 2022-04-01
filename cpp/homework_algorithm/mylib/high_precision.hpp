@@ -44,7 +44,7 @@ public:
                     return true;
                 }else if (*it1<*it2) {
                     return false;
-                }else
+                }
 
                 ++it1;
                 ++it2;
