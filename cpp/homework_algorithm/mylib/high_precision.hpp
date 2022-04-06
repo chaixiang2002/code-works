@@ -1,34 +1,47 @@
-
-
 #include <algorithm>
 #include <iostream>
 #include <iterator>
 #include <ostream>
-
-#include <stdio.h>
 #include <stdlib.h>
 #include <string>
 #include <algorithm>
-
 #include <vector>
 
-
+#define half_M LONG_MAX/2
 class hp{ // 比较、加、减、乘、除、快速幂、LCM公倍数、GCD公因数、
-
 public:
     std::vector<int> num;
+    bool sign;
 
     hp(hp& hp1){
         this->num.assign(hp1.num.begin(),hp1.num.end());
     }
     hp(std::string s){
-        reverse(s.begin(),s.end());
-        for(auto& t:s){
-            this->num.emplace_back( (int)(t-'0') );
+        auto it=s.begin();
+        auto it2=s.end()-1;
+
+        if(*it=='-'){
+            this->sign=0;
+
+        }else {
+            this->sign=1;
         }
+        int n=0;
+        while(*it2>'/' && *it2<':'){
+            if(n==31){
+                this->num.emplace_back( stio(s,) )
+                n=0;
+            }
+            ++n;
+            --it2;
+        }
+
     }
 
-
+        // reverse(s.begin(),s.end());
+        // for(auto& t:s){
+        //     this->num.emplace_back( (int)(t-'0') );
+        // }
 
     /* 真值比较 */
     static bool compare(hp& p,hp& q){
@@ -96,7 +109,6 @@ public:
     }
 
 
-
     static hp subtract(hp& x,hp& y){
         hp* res;
         std::vector<int>::iterator it,it2;
@@ -134,25 +146,6 @@ public:
         return (*res);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     void print(){
         std::vector<int>::iterator it=this->num.end()-1;
         for(;it>=this->num.begin();--it){
@@ -160,9 +153,6 @@ public:
         }
     }
 };
-
-
-
 
 
 
@@ -199,7 +189,7 @@ public:
     Matrix(int m,int n){
         this->m=m;
         this->n=n;
-    std::vector<std::vector<int>> s(m);
+        std::vector<std::vector<int>> s(m);
         for(int i=0;i<m;++i){
             s[i].resize(n);
             for(int j=0;j<n;++j){
@@ -264,6 +254,7 @@ public:
 
 
 void test(){
+    printf("%d\n",half_M);
     hp num1("999999");
     num1.print();
     std::cout<<std::endl;
