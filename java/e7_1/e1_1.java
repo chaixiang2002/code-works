@@ -4,6 +4,10 @@ class Fu
 	{
 		System.out.println("fu show");
 	}
+    public void method()//修改后！！！没这个不行
+	{
+		System.out.println("fu method");
+	}
 }
 
 class Zi extends Fu
